@@ -1,0 +1,20 @@
+@font-face {
+	font-family: "Averta";
+	font-weight: 400;
+	font-style: normal;
+	src: url("AvertaStd-Regular.woff2");
+}
+
+@font-face {
+	font-family: "Averta";
+	font-weight: 600;
+	font-style: normal;
+	src: url("AvertaStd-Semibold.woff2");
+}
+
+@font-face {
+	font-family: "Averta";
+	font-weight: 700;
+	font-style: normal;
+	src: url("AvertaStd-Bold.woff2");
+}
