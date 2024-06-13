@@ -1,0 +1,69 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+	font-family: "Averta";
+	box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+	height: 100%;
+	width: 100%;
+	overflow: auto;
+	position: relative;
+	font-size: 16px;
+}
+
+body {
+	min-width: 350px;
+	overflow-x: auto;
+}
+
+input,
+button,
+textarea {
+	border: 2px solid #bbb;
+	padding: 8px;
+	border-radius: 10px;
+	background-color: white;
+}
+
+input:disabled {
+	background-color: #e0e0e0;
+}
+
+button {
+	background-color: #e0e0e0;
+	transition: all 500ms;
+}
+button:hover {
+	filter: brightness(0.9);
+}
+
+::-webkit-scrollbar {
+	display: none;
+}
+
+td {
+	padding: 0 10px;
+	width: 50%;
+	font-size: 14px;
+}
+
+td:first-child {
+	font-weight: 600;
+}
+
+.animate-page-load {
+	animation: page-load 200ms ease-in-out;
+}
+
+@keyframes page-load {
+	0% {
+		opacity: 0;
+		transform: translateX(20px);
+	}
+}
