@@ -4,6 +4,7 @@ import AppRouter from "./components/AppRouter"
 import RootContext from "./context"
 import { getAllNotes } from "./services/noteService"
 import { Note } from "./types/Note"
+import "@/helpers/subscribeToPush"
 
 export default function App() {
 	const [workingNote, setWorkingNote] = useState<Note>(defaultNote)
@@ -21,7 +22,7 @@ export default function App() {
 				setWorkingNote,
 				notes,
 				setNotes,
-				fetchNotes
+				fetchNotes,
 			}}
 		>
 			<AppRouter />

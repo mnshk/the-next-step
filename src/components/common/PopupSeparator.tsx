@@ -1,8 +1,8 @@
 import { HTMLAttributes } from "react"
 
 type PopupSeparatorProps = {
-	wrapperProps: HTMLAttributes<HTMLDivElement>
-	props: HTMLAttributes<HTMLDivElement>
+	wrapperProps?: HTMLAttributes<HTMLDivElement>
+	props?: HTMLAttributes<HTMLDivElement>
 }
 
 export default function PopupSeparator({ wrapperProps, props }: PopupSeparatorProps) {
