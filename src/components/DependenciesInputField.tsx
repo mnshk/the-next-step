@@ -89,7 +89,7 @@ export default function DependenciesInputField({ watch, setValue, getValues }: D
 						{searchResults.map(note => (
 							<SearchItem
 								key={note._id}
-								className="text-left py-2"
+								className="text-left"
 								note={note}
 								handleOpenNote={note => {
 									setValue("dependencies", [...new Set([...getValues("dependencies"), note._id!])])

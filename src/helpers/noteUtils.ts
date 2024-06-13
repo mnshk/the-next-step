@@ -92,13 +92,41 @@ export function areDependenciesMet(note: Note, notes: Note[]): boolean {
 export function getSchedules(notes: Note[]) {
 	return notes
 		.filter(doesNoteHaveTimeBlock)
-		.filter(note => !(isNoteOverdue(note) && isNoteClosed(note)))
+		.filter(note => !isNoteClosed(note))
 		.filter(note => note.instanceStatus !== "DONE")
 		.sort(sortNotes)
 }
+
 export function getTasks(notes: Note[]) {
 	return notes
 		.filter(note => !doesNoteHaveTimeBlock(note) && !isNoteClosed(note))
 		.filter(note => areDependenciesMet(note, notes))
 		.sort(sortNotes)
+}
+
+export function hasNoteStarted(note: Note) {
+	if (doesNoteHaveTimeBlock(note)) {
+		return moment(moment.now()).isAfter(moment(note.timeBlock.starts, "HH:mm")) && note.timeBlock.days[new Date().getDay()]
+	}
+	return moment(moment.now()).isAfter(moment(note.startsAt))
+}
+
+export function hasNoteEnded(note: Note) {
+	if (doesNoteHaveTimeBlock(note)) {
+		return moment(moment.now()).isAfter(moment(note.timeBlock.ends, "HH:mm"))
+	}
+	return moment(moment.now()).isAfter(moment(note.endsAt))
+}
+
+export function isNoteActive(note: Note) {
+	if (doesNoteHaveTimeBlock(note)) {
+		return (
+			moment(moment.now()).isAfter(moment(note.timeBlock.starts, "HH:mm")) &&
+			moment(moment.now()).isBefore(moment(note.timeBlock.ends, "HH:mm")) &&
+			note.timeBlock.days[new Date().getDay()]
+		)
+	} else if (doesNoteHaveADeadline(note)) {
+		return moment(moment.now()).isAfter(moment(note.startsAt)) && moment(moment.now()).isBefore(moment(note.endsAt))
+	}
+	return false
 }

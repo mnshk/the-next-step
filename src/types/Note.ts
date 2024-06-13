@@ -1,5 +1,4 @@
 export type NoteStatus = "NEW" | "PENDING" | "OVERDUE" | "DONE" | "ABANDONED"
-export type NoteInstanceStatus = "PENDING" | "DONE" | "ABANDONED"
 
 export type DaysOfWeekNumeric = 0 | 1 | 2 | 3 | 4 | 5 | 6
 
@@ -10,7 +9,7 @@ export type Note = {
 	status: NoteStatus
 	startsAt: string
 	endsAt: string
-	instanceStatus: NoteInstanceStatus
+	instanceStatus: NoteStatus
 	timeBlock: {
 		starts: string
 		ends: string

@@ -53,6 +53,16 @@ export default function ActionsPopup({ open, handleClose, handleDelete }: Action
 						>
 							Mark as Pending
 						</FlexButton>
+						{doesNoteHaveTimeBlock(workingNote) && (
+							<FlexButton
+								onClick={() => {
+									updateNote(markNote(workingNote, "PENDING", true))
+									handleClose()
+								}}
+							>
+								Mark all Pending
+							</FlexButton>
+						)}
 						<PopupSeparator />
 					</>
 				) : (
